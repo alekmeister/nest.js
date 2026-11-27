@@ -5,6 +5,7 @@ import { TaskModule } from './task/task.module.js';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { getTypeOrmConfig } from './config/typeorm.config.js';
+import { MovieModule } from './movie/movie.module.js';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { getTypeOrmConfig } from './config/typeorm.config.js';
       useFactory: getTypeOrmConfig,
       inject: [ConfigService],
     }),
+    MovieModule,
   ],
   controllers: [AppController],
   providers: [AppService],
